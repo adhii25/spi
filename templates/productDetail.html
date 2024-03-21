@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="container"><br>
+    <div class="row">
+      {% for i in prod %}
+    <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{i.poster.url}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{i.movie}}</h5>
+        <p class="card-text">{{i.release_date}}</p>
+          <p class="card-text">{{i.description}}</p>
+        <p class="card-text">{{i.actors}}</p>
+        <p class="card-text">{{i.category}}</p>
+        <p><a href="https://www.youtube.com/" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{i.websites}}</a></p>
+        <a href="{% url 'update' i.id %}" class="btn btn-primary">Update</a>
+        <br><br>
+        <a href="{% url 'delete' i.id %}" class="btn btn-danger">Delete</a> <br>
+      </div>
+    </div>
+  </div>
+</div>
+   {% endfor %}
+
+    </div>
+</div>
+
+<div class="container" style="border:solid;width:550px; margin-left:2px; border-color:white;" >
+
+  <h3>All rating and reviews</h3>
+{% for x in reviews%}
+<p>{{ x.user }}</p>
+<p>{{ x.review_desp }}</p>
+
+ {% if x.rating > 0 %}
+                  <i class="fa fa-star {% if x.rating  < 1 %} no-checked {% else %} checked {% endif %} " id="check-star"></i>
+                  <i class="fa fa-star {% if x.rating  < 2 %} no-checked {% else %} checked {% endif %} " id="check-star"></i>
+                  <i class="fa fa-star {% if x.rating  < 3 %} no-checked {% else %} checked {% endif %} " id="check-star"></i>
+                  <i class="fa fa-star {% if x.rating  < 4 %} no-checked {% else %} checked {% endif %} " id="check-star"></i>
+                  <i class="fa fa-star {% if x.rating  < 5 %} no-checked {% else %} checked {% endif %} " id="check-star"></i>
+                <hr>
+                {% else %}
+
+                 <i class="fa fa-star " id="star"></i>
+                 <i class="fa fa-star" id="star"></i>
+                 <i class="fa fa-star" id="star"></i>
+                 <i class="fa fa-star" id="star"></i>
+                 <i class="fa fa-star" id="star"></i>
+                        &nbsp;<span>No ratings</span>
+
+                <hr>
+
+                {% endif %}
+{% endfor %}
+<form method="post" action="">
+    {% csrf_token %}
+
+  <div class="col-md-6">
+                <p style="font-weight:600;">Write a review</p>
+                <form method="Post">
+                    {% csrf_token %}
+
+                           <div class="form-group required">
+                      <div class="rating">
+
+                          <input type="radio" id="star5" name="rating" value="5" />
+                          <label class="star" for="star5" title="Awesome" aria-hidden="true"></label>
+                          <input type="radio" id="star4" name="rating" value="4" />
+                          <label class="star" for="star4" title="Great" aria-hidden="true"></label>
+                          <input type="radio" id="star3" name="rating" value="3" />
+                          <label class="star" for="star3" title="Very good" aria-hidden="true"></label>
+                          <input type="radio" id="star2" name="rating" value="2" />
+                          <label class="star" for="star2" title="Good" aria-hidden="true"></label>
+                          <input type="radio" id="star1" name="rating" value="1" />
+                          <label class="star" for="star1" title="Bad" aria-hidden="true"></label>
+
+                        </div>
+                    </div>
+
+                    </div>
+                    <textarea name="item_review"  placeholder="write a review" rows="6" cols="50" id="review-text" required></textarea>
+                    <br>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+
+                          <input type="submit"  class="btn btn-primary mt-2" value="Post">
+<!--                    col finish-->
+
+
+                </div>
+
+                </form>
+            </div>
+<!--            rate review col-->
+
+
+
+</div>
+
+{% endblock %}

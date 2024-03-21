@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block title %}REGISTRATION{% endblock %}
+
+
+{% block content %}
+<div class="container">
+  <h2>REGISTRATION</h2><br>
+
+    <div class="row">
+        <form action="{% url 'register' %}" method="post">
+    {%csrf_token%}
+    <div class="form-control">
+        <label>username</label>
+         <input type="text" name= "username" placeholder="Enter Your Username"><br>
+    </div>
+
+    <div class="form-control">
+        <label>firstname</label>
+        <input type="text" name="first_name" placeholder="Enter Your first name"><br>
+    </div>
+
+    <div class="form-control">
+        <label>lastname</label>
+        <input type="text" name="last_name" placeholder="Enter Your last name"><br>
+    </div>
+
+    <div class="form-control">
+        <label>email</label>
+        <input type="text" name="email" placeholder="Enter Your email"><br>
+    </div>
+
+    <div class="form-control">
+        <label>password</label>
+        <input type="text" name="password" placeholder="Enter Your password"><br>
+    </div>
+
+<!--     <div class="form-control">-->
+<!--        <label>confirm password</label>-->
+<!--        <input type="text" name="cnf_password" placeholder="Enter Your confirm password"><br>-->
+<!--    </div><br>-->
+    <input type="submit" value="Register" class="btn btn-secondary btn-block">
+ </form>
+    </div>
+</div>
+{% for msg in messages %}
+<h2>{{msg}}</h2>
+{% endfor %}
+
+{% endblock %}
