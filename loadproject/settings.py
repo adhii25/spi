@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'loadproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'unload',
+        'NAME': 'allo',
         'USER': 'root',
         'PASSWORD': '',
     }

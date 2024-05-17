@@ -1,4 +1,6 @@
-
+<li class="nav-item">
+          <a class="nav-link" href="{% url 'edit_profile' %}">EDIT PROFILE</a>
+        </li>
 
 
 
@@ -21,3 +23,216 @@
 <!--</div>-->
 
 {% endblock %}
+
+
+
+
+
+<!--<nav class="navbar navbar-expand-lg bg-body-tertiary">-->
+<!--  <div class="container-fluid">-->
+<!--    <a class="navbar-brand" href="#"></a>-->
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--      <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="{% url 'showProducts' %}">HOME</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item dropdown {% if 'loadapp' in request.path %} active {% endif %}">-->
+
+<!--        </li>-->
+<!--          <li class="nav-item">-->
+<!--          <a class="nav-link" href="{% url 'add_movie' %}">ADDMOVIE</a>-->
+<!--        </li>-->
+<!--          <li class="nav-item">-->
+<!--          <a class="nav-link" href="{% url 'all_movies' %}">ALLMOVIE</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item dropdown  %}{% if 'loadapp' in request.path %}active{% endif ">-->
+<!--          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--            GENERS-->
+<!--          </a>-->
+<!--          <ul class="dropdown-menu">-->
+<!--            <li><a class="dropdown-item" href="{% url 'showProducts' %}">All product</a></li>-->
+<!--              {% for cat in categories %}-->
+<!--            <li><a class="dropdown-item" href="{{cat.get_url}}">{{cat.category}}</a></li>-->
+<!--             {% endfor %}-->
+<!--            <li><hr class="dropdown-divider"></li>-->
+<!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+<!--          </ul>-->
+<!--        </li>-->
+<!--         {% if item_count > 0 %}-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="{% url 'cart:cart_detail' %}"><i class="fa fa-shopping-cart"></i>({{item_count}})</a>-->
+<!--        </li>-->
+<!--        {% endif %}-->
+<!--      </ul>-->
+
+
+<!--       {% if user.is_authenticated %}-->
+<!--        <li class="nav-item mr-3">-->
+<!--          <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">-->
+<!--            <i class="fas fa-sign-out-alt"></i>LOGOUT-->
+<!--          </a>-->
+<!--          <form action="{% url 'logout' %}" id="logout" method="POST">-->
+<!--            {% csrf_token %}-->
+<!--            <input type="hidden">-->
+<!--          </form>-->
+
+
+<!--        </li>-->
+<!--      {% else %}-->
+
+<!--      <a class="btn btn-success m-1" href="{% url 'register' %}">REGISTER</a>-->
+<!--      <br>-->
+<!--      <a class="btn btn-primary m-1" href="{% url 'login' %}">LOGIN</a>-->
+<!--      <br>-->
+<!--      <a class="btn btn-warning" href="{% url 'logout' %}">LOGOUT</a>-->
+
+<!--     {% endif %}-->
+
+<!--      <form class="d-flex" action="{% url 'search' %}" method="get">-->
+<!--         {% csrf_token %}-->
+<!--        <input class="form-control me-2" type="search" placeholder="Search" name="q" aria-label="Search" style="margin-left:550px;">-->
+<!--        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search </button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+
+2
+<!--<nav class="navbar navbar-expand-lg bg-body-tertiary">-->
+<!--  <div class="container-fluid">-->
+<!--    <a class="navbar-brand" href="#"></a>-->
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--      <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="{% url 'showProducts' %}">Home</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item dropdown {% if 'loadapp' in request.path %} active {% endif %}">-->
+<!--           <li class="nav-item">-->
+<!--          <a class="nav-link" href="{% url 'add_movie' %}">ADDMOVIE</a>-->
+<!--        </li>-->
+<!--          <li class="nav-item">-->
+<!--          <a class="nav-link" href="{% url 'all_movies' %}">ALLMOVIE</a>-->
+<!--        </li>-->
+
+<!--        </li>-->
+<!--        <li class="nav-item dropdown {% if 'loadapp' in request.path %}active{% endif %} ">-->
+<!--          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--            shop-->
+<!--          </a>-->
+<!--          <ul class="dropdown-menu">-->
+<!--            <li><a class="dropdown-item" href="{% url 'showProducts' %}">All Movies</a></li>-->
+<!--              {% for cat in categories %}-->
+<!--            <li><a class="dropdown-item" href="{{cat.get_url}}">{{cat.category}}</a></li>-->
+<!--             {% endfor %}-->
+<!--            <li><hr class="dropdown-divider"></li>-->
+<!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+<!--          </ul>-->
+<!--        </li>-->
+
+<!--      </ul>-->
+
+<!--       {% if user.is_authenticated %}-->
+<!--        <li class="nav-item mr-3">-->
+<!--          <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">-->
+<!--            <i class="fas fa-sign-out-alt"></i>LOGOUT-->
+<!--          </a>-->
+<!--          <form action="{% url 'logout' %}" id="logout" method="POST">-->
+<!--            {% csrf_token %}-->
+<!--            <input type="hidden">-->
+<!--          </form>-->
+
+
+<!--        </li>-->
+<!--      {% else %}-->
+
+<!--      <a class="btn btn-success m-1" href="{% url 'register' %}">REGISTER</a>-->
+<!--      <br>-->
+<!--      <a class="btn btn-primary m-1" href="{% url 'login' %}">LOGIN</a>-->
+<!--      <br>-->
+<!--      <a class="btn btn-warning" href="{% url 'logout' %}">LOGOUT</a>-->
+
+<!--     {% endif %}-->
+<!--      <form class="d-flex" action="{% url 'search' %}" method="get">-->
+<!--         {% csrf_token %}-->
+<!--        <input class="form-control me-2" type="search" placeholder="Search" name="q" aria-label="Search" style="margin-left:550px;">-->
+<!--          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search </button>-->
+
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+
+
+
+
+
+
+
+<!--<nav class="navbar navbar-expand-lg bg-body-tertiary">-->
+<!--  <div class="container-fluid">-->
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--      <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link active" aria-current="page" href="{% url 'showProducts' %}">HOME</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="{% url 'add_movie' %}">ADD MOVIE</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="{% url 'all_movies' %}">ALL MOVIE</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item dropdown">-->
+<!--          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--            Dropdown-->
+<!--          </a>-->
+<!--          <ul class="dropdown-menu">-->
+<!--            <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--            <li><a class="dropdown-item" href="#">Another action</a></li>-->
+<!--            <li><hr class="dropdown-divider"></li>-->
+<!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+<!--          </ul>-->
+<!--        </li>-->
+
+<!--      </ul>-->
+
+<!--       {% if user.is_authenticated %}-->
+<!--        <li class="nav-item mr-3">-->
+<!--          <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">-->
+<!--            <i class="fas fa-sign-out-alt"></i>LOGOUT-->
+<!--          </a>-->
+<!--          <form action="{% url 'logout' %}" id="logout" method="POST">-->
+<!--            {% csrf_token %}-->
+<!--            <input type="hidden">-->
+<!--          </form>-->
+
+
+<!--        </li>-->
+<!--      {% else %}-->
+
+<!--      <a class="btn btn-success m-1" href="{% url 'register' %}">REGISTER</a>-->
+<!--      <br>-->
+<!--      <a class="btn btn-primary m-1" href="{% url 'login' %}">LOGIN</a>-->
+<!--      <br>-->
+<!--      <a class="btn btn-warning" href="{% url 'logout' %}">LOGOUT</a>-->
+
+<!--     {% endif %}-->
+
+
+<!--      <form action="{% url 'search' %}" class="d-flex">-->
+<!--        <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->

@@ -1,9 +1,13 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Categories(models.Model):
     category=models.CharField(max_length=30,unique=True)
     slug=models.SlugField()
+
+    def get_url(self):
+        return reverse('loadapp:showProducts',args=self.category)
 
     def __str__(self):
         return self.category

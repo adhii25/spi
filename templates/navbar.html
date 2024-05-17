@@ -1,34 +1,150 @@
+<!--<nav class="navbar navbar-expand-lg bg-body-tertiary">-->
+<!--  <div class="container-fluid">-->
+<!--    <a class="navbar-brand" href="#">Navbar</a>-->
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--      <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link active" aria-current="page" href="#">Home</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="#">Link</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item dropdown">-->
+<!--          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--            Dropdown-->
+<!--          </a>-->
+<!--          <ul class="dropdown-menu">-->
+<!--            <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--            <li><a class="dropdown-item" href="#">Another action</a></li>-->
+<!--            <li><hr class="dropdown-divider"></li>-->
+<!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+<!--          </ul>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link disabled" aria-disabled="true">Disabled</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--      <form class="d-flex" role="search">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+
+
+<!--<div class="container-fluid">-->
+
+<!--<ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist" style="&#45;&#45;bs-nav-link-color: var(&#45;&#45;bs-white); &#45;&#45;bs-nav-pills-link-active-color: var(&#45;&#45;bs-primary); &#45;&#45;bs-nav-pills-link-active-bg: var(&#45;&#45;bs-white);">-->
+<!--  <li class="nav-item" role="presentation">-->
+<!--  </li>-->
+<!--   <li class="nav-item">-->
+<!--          <a class="nav-link active" aria-current="page" href="{% url 'showProducts' %}">HOME</a>-->
+<!--        </li>-->
+
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="{% url 'add_movie' %}">ADD MOVIE</a>-->
+<!--        </li>-->
+<!--  <li class="nav-item">-->
+<!--          <a class="nav-link" href="{% url 'all_movies' %}">ALL MOVIES</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item dropdown">-->
+<!--             <li class="nav-item dropdown  %}{% if 'loadapp' in request.path %}active{% endif %} ">-->
+<!--          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--            GENERS-->
+<!--          </a>-->
+<!--          <ul class="dropdown-menu">-->
+<!--            <li><a class="dropdown-item" href="#">All Movies</a></li>-->
+<!--            {% for cat in categories %}-->
+<!--            <li><a class="dropdown-item" href="{% url 'movie_by_category' c.slug %}">{{cat.category}}</a></li>-->
+
+<!--            {% endfor %}-->
+<!--          </ul>-->
+<!--        </li>-->
+<!--   {% if user.is_authenticated %}-->
+<!--        <li class="nav-item mr-3">-->
+<!--          <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">-->
+<!--            <i class="fas fa-sign-out-alt"></i>LOGOUT-->
+<!--          </a>-->
+<!--          <form action="{% url 'logout' %}" id="logout" method="POST">-->
+<!--            {% csrf_token %}-->
+<!--            <input type="hidden">-->
+<!--          </form>-->
+
+
+<!--        </li>-->
+<!--      {% else %}-->
+
+<!--      <a class="btn btn-success m-1" href="{% url 'register' %}">REGISTER</a>-->
+<!--      <br>-->
+<!--      <a class="btn btn-primary m-1" href="{% url 'login' %}">LOGIN</a>-->
+<!--      <br>-->
+<!--      <a class="btn btn-warning" href="{% url 'logout' %}">LOGOUT</a>-->
+
+<!--     {% endif %}-->
+
+
+
+<!--   <form action="{% url 'search' %}" method="get" class="d-flex">-->
+<!--        <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--   </form>-->
+<!--</ul>-->
+
+
+<!--</div><br>-->
+
+
+
+
+
+
+
+
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'showProducts' %}">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'add_movie' %}">ADD MOVIE</a>
+          <a class="nav-link" href="{% url 'edit_profile' %}">EDIT PROFILE</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'all_movies' %}">ALL MOVIE</a>
+          <a class="nav-link" href="{% url 'add_movie' %}">ADD MOVIE</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'all_movies' %}">ALL MOVIES</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            CATEGORIES
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="{% url 'all_movies' %}">All Movies</a></li>
+            {% for c in movie_cat %}
+            <li><a class="dropdown-item" href="{% url 'movie_by_category' c.slug %}">{{c.category}}</a></li>
+
+            {% endfor %}
           </ul>
         </li>
 
       </ul>
-
-       {% if user.is_authenticated %}
+      <br>
+      <br>
+      {% if user.is_authenticated %}
         <li class="nav-item mr-3">
           <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
             <i class="fas fa-sign-out-alt"></i>LOGOUT
@@ -51,10 +167,17 @@
      {% endif %}
 
 
-      <form action="{% url 'search' %}" class="d-flex">
+      <form action="{% url 'search' %}" method="get" class="d-flex">
         <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
   </div>
 </nav>
+
+
+
+
+
+
+

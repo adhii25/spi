@@ -7,6 +7,8 @@ from django.utils.text import slugify
 from loadapp.forms import CategoryForm, MoviesForm
 from loadapp.models import Movies, Categories
 from django.http import HttpResponse
+from .forms import EditProfileForm
+
 # Create your views here.
 
 @login_required(login_url='login/')
@@ -41,8 +43,12 @@ def Addmovie(request):
 
 
 @login_required(login_url='/')
-def AllMovies(request):
-    my_movies=Movies.objects.all()
+def AllMovies(request,c_link=None):
+    if c_link!=None:
+        cat=Categories.objects.get(slug=c_link)
+        my_movies=Movies.objects.filter(category=cat)
+    else:
+      my_movies=Movies.objects.all()
     return render(request,"all-movies.html",{"movies":my_movies})
 
 
@@ -140,6 +146,20 @@ def logout(request):
         auth.logout(request)
         print('logged out from websites....')
         return redirect('login')
+
+
+
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST,instance=request.user)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('Your profile is updated')
+    else:
+        form = EditProfileForm(instance=request.user)
+    return render(request,'edit_profile.html',{'form':form})
 
 
 
